@@ -30,7 +30,7 @@ function Home() {
             <a href="/series" className="card-link">Go to Series →</a>
           </div>
           <div className="card">
-            <img src="https://i.imgur.com/IH7a9Yz.jpg" alt="Anime" />
+            <img src="https://i.imgur.com/9vnLXcz.gif" alt="Anime" />
             <h3>Anime</h3>
             <p>Dive into the universe of top-rated anime and latest releases.</p>
             <a href="/anime" className="card-link">Go to Anime →</a>
