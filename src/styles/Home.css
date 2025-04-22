@@ -1,0 +1,117 @@
+/* Global base styles */
+.home {
+    font-family: 'Segoe UI', sans-serif;
+    color: #f0f0f0;
+    background-color: #121212;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-image: url('https://i.imgur.com/tK3oVnM.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    color: #ddd;
+  }
+  
+  .cta-button {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #0097a7;
+  }
+  
+  /* Category Section */
+  .categories {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .categories h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff;
+  }
+  
+  .category-cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .card h3 {
+    font-size: 22px;
+    margin: 16px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #bbb;
+    margin: 0 16px 16px;
+  }
+  
+  .card-link {
+    display: block;
+    margin: 0 16px 16px;
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .card-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 32px;
+    }
+  
+    .category-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
