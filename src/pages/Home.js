@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
-function Home() {
+const Home = () => {
   return (
     <div className="home">
       {/* Hero Section */}
@@ -13,7 +14,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Categories Section */}
       <section className="categories">
         <h2>Browse Categories</h2>
         <div className="category-cards">
@@ -21,19 +21,19 @@ function Home() {
             <img src="https://i.imgur.com/3fJ1P48.jpg" alt="Movies" />
             <h3>Movies</h3>
             <p>Explore the top-rated and trending movies across genres.</p>
-            <a href="/movies" className="card-link">Go to Movies →</a>
+            <Link to="/movies" className="card-link">Go to Movies →</Link>
           </div>
           <div className="card">
             <img src="https://i.imgur.com/OB0y6MR.jpg" alt="Series" />
             <h3>Series</h3>
             <p>Binge-worthy series from around the world curated for you.</p>
-            <a href="/series" className="card-link">Go to Series →</a>
+            <Link to="/series" className="card-link">Go to Series →</Link>
           </div>
           <div className="card">
             <img src="https://i.imgur.com/9vnLXcz.gif" alt="Anime" />
             <h3>Anime</h3>
             <p>Dive into the universe of top-rated anime and latest releases.</p>
-            <a href="/anime" className="card-link">Go to Anime →</a>
+            <Link to="/anime" className="card-link">Go to Anime →</Link>
           </div>
         </div>
       </section>
