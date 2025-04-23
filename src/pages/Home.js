@@ -24,7 +24,7 @@ const Home = () => {
             <Link to="/movies" className="card-link">Go to Movies →</Link>
           </div>
           <div className="card">
-            <img src="https://i.imgur.com/OB0y6MR.jpg" alt="Series" />
+            <img src="https://i.imgur.com/B93K8p6.gif" alt="Series" />
             <h3>Series</h3>
             <p>Binge-worthy series from around the world curated for you.</p>
             <Link to="/series" className="card-link">Go to Series →</Link>
