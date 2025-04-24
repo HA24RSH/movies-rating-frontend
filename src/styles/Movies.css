@@ -1,0 +1,12 @@
+.movies-page {
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
