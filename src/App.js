@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
 import Anime from './pages/Anime';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/series" element={<Series />} />
           <Route path="/anime" element={<Anime />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );
