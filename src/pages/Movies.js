@@ -56,7 +56,6 @@ const Movies = () => {
 
     return (
         <div className="movies-page">
-            <h1>Movies</h1>
             <div className="movies-grid">
                 {movies.map((movie, index) => (
                     <MovieCard
