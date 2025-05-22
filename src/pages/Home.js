@@ -1,44 +1,88 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Home.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import MovieCard from '../components/MovieCard';
+import '../styles/Home.css'; // Add styling for Home page
 
 const Home = () => {
-  return (
-    <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Welcome to EIGA</h1>
-          <p>Discover top-rated Movies, Series, and Anime. Stay updated. Rate your favorites. All in one place.</p>
-          <a href="/movies" className="cta-button">Explore Now</a>
-        </div>
-      </section>
+  const [items, setItems] = useState([]);  // Holds combined data of Movies, Series, and Anime
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-      <section className="categories">
-        <h2>Browse Categories</h2>
-        <div className="category-cards">
-          <div className="card">
-            <img src="https://i.imgur.com/3fJ1P48.jpg" alt="Movies" />
-            <h3>Movies</h3>
-            <p>Explore the top-rated and trending movies across genres.</p>
-            <Link to="/movies" className="card-link">Go to Movies →</Link>
-          </div>
-          <div className="card">
-            <img src="https://i.imgur.com/B93K8p6.gif" alt="Series" />
-            <h3>Series</h3>
-            <p>Binge-worthy series from around the world curated for you.</p>
-            <Link to="/series" className="card-link">Go to Series →</Link>
-          </div>
-          <div className="card">
-            <img src="https://i.imgur.com/9vnLXcz.gif" alt="Anime" />
-            <h3>Anime</h3>
-            <p>Dive into the universe of top-rated anime and latest releases.</p>
-            <Link to="/anime" className="card-link">Go to Anime →</Link>
-          </div>
-        </div>
-      </section>
+  // Fetch Movies, Series, and Anime combined
+  const fetchItems = async (page) => {
+    try {
+      const movieResponse = await axios.get(`http://localhost:5000/api/movies/popular?page=${page}`);
+      const seriesResponse = await axios.get(`http://localhost:5000/api/series/popular?page=${page}`);
+      const animeResponse = await axios.get(`http://localhost:5000/api/anime/popular?page=${page}`);
+      
+      const allItems = [
+        ...movieResponse.data.results,
+        ...seriesResponse.data.results,
+        ...animeResponse.data.results,
+      ];
+      
+      setItems(allItems);
+      setTotalPages(Math.max(movieResponse.data.total_pages, seriesResponse.data.total_pages, animeResponse.data.total_pages));
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+
+  // Handle Search input and filter the data
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Handle Pagination change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    fetchItems(currentPage);
+  }, [currentPage]);
+
+  return (
+    <div className="home-page">
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search Movies, Series, or Anime..."
+          value={searchQuery}
+          onChange={handleSearch}
+        />
+      </div>
+
+      <div className="content-grid">
+        {items.filter(item => 
+          item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          item.name && item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.original_title && item.original_title.toLowerCase().includes(searchQuery.toLowerCase())
+        ).map((item, index) => (
+          <MovieCard
+            key={index}
+            title={item.title || item.name || item.original_title}
+            year={item.release_date ? item.release_date.split('-')[0] : 'N/A'}
+            image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+            overview={item.overview}
+            rating={item.vote_average}
+          />
+        ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="pagination">
+        {currentPage > 1 && (
+          <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
+        )}
+        <span>Page {currentPage} of {totalPages}</span>
+        {currentPage < totalPages && (
+          <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

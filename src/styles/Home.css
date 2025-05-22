@@ -1,117 +1,236 @@
 /* Global base styles */
 .home {
-    font-family: 'Segoe UI', sans-serif;
-    color: #f0f0f0;
-    background-color: #121212;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-image: url('https://wallpapercave.com/wp/wp14833186.webp');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
-  }
-  
+  font-family: 'Segoe UI', sans-serif;
+  color: #f0f0f0;
+  background-color: #121212;
+}
+
+.cta-button {
+  background-color: #00bcd4;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0097a7;
+}
+
+/* Category Section */
+.categories {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.categories h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+.category-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 16px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #bbb;
+  margin: 0 16px 16px;
+}
+
+.card-link {
+  display: block;
+  margin: 0 16px 16px;
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 16px;
-  }
-  
-  .hero-content p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 24px;
-    color: #ddd;
-  }
-  
-  .cta-button {
-    background-color: #00bcd4;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  .cta-button:hover {
-    background-color: #0097a7;
-  }
-  
-  /* Category Section */
-  .categories {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .categories h2 {
-    text-align: center;
     font-size: 32px;
-    margin-bottom: 40px;
-    color: #ffffff;
   }
-  
+
   .category-cards {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .card {
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+}
+
+.home-page {
+  padding: 20px;
+  color: white;
+}
+
+.search-bar {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.7);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  color: #ffcc00;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Home.css */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensures the page occupies full height of the viewport */
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 60%;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  flex-grow: 1;
+  /* Ensures that the grid expands to fill available space */
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  /* Adds shadow for better visibility */
+}
+
+.pagination button {
+  padding: 10px 15px;
+  margin: 0 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button:hover {
+  background-color: #555;
+}
+
+.pagination span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 80%;
   }
-  
-  .card:hover {
-    transform: translateY(-8px);
-  }
-  
-  .card img {
+}
+
+@media (max-width: 500px) {
+  .search-bar input {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
   }
-  
-  .card h3 {
-    font-size: 22px;
-    margin: 16px;
-  }
-  
-  .card p {
-    font-size: 14px;
-    color: #bbb;
-    margin: 0 16px 16px;
-  }
-  
-  .card-link {
-    display: block;
-    margin: 0 16px 16px;
-    color: #00bcd4;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .card-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero-content h1 {
-      font-size: 32px;
-    }
-  
-    .category-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}
+
+/* Header.css */
+
+.navbar {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  /* Center the logo */
+  align-items: center;
+  /* Align items vertically in the center */
+}
+
+.logo a {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
